@@ -1,8 +1,6 @@
 package com.shop.prshop.controller;
 
-import com.shop.prshop.Cart;
 import com.shop.prshop.model.Item;
-import com.shop.prshop.repository.ItemRepository;
 import com.shop.prshop.service.CartService;
 import com.shop.prshop.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
