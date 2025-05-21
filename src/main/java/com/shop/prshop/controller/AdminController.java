@@ -27,7 +27,7 @@ public class AdminController {
     public String addItem(Model model) {
         Item item = new Item();
         model.addAttribute("item", item);
-        return "additem";
+        return "addItem";
     }
 
     @PostMapping("/save")
