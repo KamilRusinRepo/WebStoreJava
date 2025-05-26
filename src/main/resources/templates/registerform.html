@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create your account</h2>
+        </div>
+    </div>
+    <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" th:action="@{/saveUser}" th:object="${user}" method="POST">
+            
+            <div>
+                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                <div>
+                    <input id="first_name" name="first_name" type="text" th:field="*{firstName}" autocomplete="name" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+
+            <div>
+                <label for="last_name" class="block text-sm font-medium leading-12 text-gray-900">Last name</label>
+                <div>
+                    <input id="last_name" name="last_name" type="text" th:field="*{lastName}" autocomplete="name" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div>
+                    <input id="email" name="email" type="email" th:field="*{email}" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+                </div>
+                <p th:if="${errorEmail}" class="text-red-600">Acount with this email already exists</p>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label> 
+                </div>
+                <div>
+                    <input id="password" name="password" type="password" th:field="*{password}" autocomplete="current-password" required minlength="8" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring focus:ring focus:ring-stone-800 sm:text-sm sm:leading-6 ">
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="flex w-full justify-center rounded-md bg-stone-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rgb(29, 29, 31) cursor-pointer">Register</button>
+            </div>
+        </form>
+
+        <p class="mt10 text-center text-sm text-gray-500">
+            Already have an account?
+            <a th:href="@{'/showMyLoginPage'}" class="font-semibold leading-6 text-stone-700 hover:text-stone-800">Sign in!</a>
+        </p>
+    </div>
+</body>
+</html>
