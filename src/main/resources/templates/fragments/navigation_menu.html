@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/checkout_style.css">
+</head>
+<body>
+    <div class="kom" th:fragment="navigation">
+        <div class="container">
+            <div class="logo"><a th:href="@{'/'}">PR</a></div>
+            <ul class="nav_links">
+                <li id="nav_apple">
+                    <a class="nav_apple_button" th:href="@{'/applepage'}">Apple</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/applepage}">Explore all Apple products</a></li>
+                                    <li><a th:href="@{/productpage}">Phones</a></li>
+                                    <li><a th:href="@{/productpage}">Laptops</a></li>
+                                    <li><a th:href="@{/productpage}">Tablets</a></li>
+                                    <li><a th:href="@{/productpage}">Headphones</a></li>
+                                    <li><a th:href="@{/productpage}">Watches</a></li>
+                                    <li><a th:href="@{/productpage}">Accessories</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_samsung">
+                    <a class="nav_samsung_button" th:href="@{/samsungpage}">Samsung</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/samsungpage}">Explore all Samsung products</a></li>
+                                    <li><a th:href="@{/productpage}">Phones</a></li>
+                                    <li><a th:href="@{/productpage}">Laptops</a></li>
+                                    <li><a th:href="@{/productpage}">Tablets</a></li>
+                                    <li><a th:href="@{/productpage}">Headphones</a></li>
+                                    <li><a th:href="@{/productpage}">Watches</a></li>
+                                    <li><a th:href="@{/productpage}">Accessories</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_phone">
+                    <a class="nav_phone_button" th:href="@{/phonespage}">Phones</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple phones</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 15 Pro Max</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 15 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 15 Max</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 15</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 14 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone 14</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung phones</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S23 Ultra</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S23</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S23+</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S22 Ultra</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S22+</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung galaxy S22</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_laptop">
+                    <a class="nav_laptop_button" th:href="@{/laptopspage}">Laptops</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple laptops</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Pro 16" M3</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Pro 14" M3</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Pro 16" M2</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Air 16" M2</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Pro 16" M1</a></li>
+                                    <li><a th:href="@{/productpage}">Macbook Air 16" M1</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung laptops</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Book 2 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Book 2</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Chromebook Go</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_tablet">
+                    <a class="nav_tablet_button" th:href="@{/tabletspage}">Tablets</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple tablets</a></li>
+                                    <li><a th:href="@{/productpage}">Ipad Pro M2</a></li>
+                                    <li><a th:href="@{/productpage}">iPad Air M2</a></li>
+                                    <li><a th:href="@{/productpage}">iPad Mini</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung tablets</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Tab S9 Ultra</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Tab S9+</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Tab S9</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li id="nav_headphones">
+                    <a class="nav_headphones_button" th:href="@{/headphonespage}">Headphones</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple headphones</a></li>
+                                    <li><a th:href="@{/productpage}">AirPods Pro 2Gen</a></li>
+                                    <li><a th:href="@{/productpage}">AirPods Pro 1Gen</a></li>
+                                    <li><a th:href="@{/productpage}">AirPods 3Gen</a></li>
+                                    <li><a th:href="@{/productpage}">AirPods 2Gen</a></li>
+                                    <li><a th:href="@{/productpage}">AirPods Max</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung headphones</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Buds 2 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Buds 2</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Buds 2 FE</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Buds Live</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_watch">
+                    <a class="nav_watch_button" th:href="@{/watchespage}">Watches</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple watches</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch Ultra 2</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch Ultra</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch Series 9</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch Series 8</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch SE</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung watches</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Watch 6 classic</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Watch 6</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Watch 5 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">Samsung Galaxy Watch 5</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="nav_accessories">
+                    <a class="nav_accessories_button" th:href="@{/accessoriespage}">Accessories</a>
+                    <div class="mega_box">
+                        <div class="content">
+                            <div class="row">
+                                <header><a th:href="@{/applepage}">Apple</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Apple accessories</a></li>
+                                    <li><a th:href="@{/productpage}">Power Adapter 20W</a></li>
+                                    <li><a th:href="@{/productpage}">Case for iPhone 15 Pro</a></li>
+                                    <li><a th:href="@{/productpage}">iPhone Wallet with Magsafe</a></li>
+                                    <li><a th:href="@{/productpage}">Apple Watch  Bands</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <header><a th:href="@{/samsungpage}">Samsung</a></header>
+                                <ul class="mega_links">
+                                    <li><a th:href="@{/productpage}">Explore all Samsung accessories</a></li>
+                                    <li><a th:href="@{/productpage}">Power Adapter 25W</a></li>
+                                    <li><a th:href="@{/productpage}">S Pen</a></li>
+                                    <li><a th:href="@{/productpage}">Battery Pack</a></li>
+                                    <li><a th:href="@{/productpage}">Case for Samsung Galaxy S23 Ultra</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="classa">
+            <ul>
+                <li>
+                    <a th:href="@{'/acountPage'}"><i class="bi bi-person"></i></a>
+                    <div class="class-menu" sec:authorize="!isAuthenticated()">
+                        <ul class="class-links">
+                            <li><a th:href="@{'/showMyLoginPage'}">Sign in</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-menu " sec:authorize="isAuthenticated()" >
+                        <form action="#" th:action="@{/logout}" method="POST" class="">
+                            <input class="form_input" type="submit" value="Logout" >
+                        </form>
+                    </div>
+                </li>
+            </ul>
+            </div>   
+            <div class="photos">
+                <div class="cart_quantity">
+                    <a th:href="@{'/cart/'}" class="cart-icon">
+                        <i class="bi bi-bag"></i>
+                        <div id="total">
+                            <p th:text="${@cart.counter}"></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let apple = document.getElementById('nav_apple');
+        let apple_button = document.querySelector('.nav_apple_button');
+        let samsung = document.getElementById('nav_samsung');
+        let samsung_button = document.querySelector('.nav_samsung_button');
+        let phones = document.getElementById('nav_phone');
+        let phone_button = document.querySelector('.nav_phone_button');
+        let laptops = document.getElementById('nav_laptop');
+        let laptops_button = document.querySelector('.nav_laptop_button');
+        let tablets = document.getElementById('nav_tablet');
+        let tablets_button = document.querySelector('.nav_tablet_button');
+        let headphones = document.getElementById('nav_headphones');
+        let headphones_button = document.querySelector('.nav_headphones_button');
+        let watches = document.getElementById('nav_watch');
+        let watches_button = document.querySelector('.nav_watch_button');
+        let accessiories = document.getElementById('nav_accessories');
+        let accessiories_button = document.querySelector('.nav_accessories_button');
+        let acount_menu = document.querySelector('.classa');
+        let acount_icon = document.querySelector('.bi-person');
+
+        
+        acount_menu.addEventListener('mouseover', () => {
+            acount_icon.style.fontSize = "38px";
+            acount_icon.style.color = "black";
+        });
+
+        acount_menu.addEventListener('mouseout', () => {
+            acount_icon.style.fontSize = "34px";
+            acount_icon.style.color = "rgb(70, 70, 70)";
+        });
+
+        apple.addEventListener('mouseover', () => {
+            apple_button.style.background = "white";
+            apple_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        apple.addEventListener('mouseout', () => {
+            apple_button.style.background = "none";
+            apple_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        samsung.addEventListener('mouseover', () => {
+            samsung_button.style.background = "white";
+            samsung_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        samsung.addEventListener('mouseout', () => {
+            samsung_button.style.background = "none";
+            samsung_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        phones.addEventListener('mouseover', () => {
+            phone_button.style.background = "white";
+            phone_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        phones.addEventListener('mouseout', () => {
+            phone_button.style.background = "none";
+            phone_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        laptops.addEventListener('mouseover', () => {
+            laptops_button.style.background = "white";
+            laptops_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        laptops.addEventListener('mouseout', () => {
+            laptops_button.style.background = "none";
+            laptops_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        tablets.addEventListener('mouseover', () => {
+            tablets_button.style.background = "white";
+            tablets_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        tablets.addEventListener('mouseout', () => {
+            tablets_button.style.background = "none";
+            tablets_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        headphones.addEventListener('mouseover', () => {
+            headphones_button.style.background = "white";
+            headphones_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        headphones.addEventListener('mouseout', () => {
+            headphones_button.style.background = "none";
+            headphones_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        watches.addEventListener('mouseover', () => {
+            watches_button.style.background = "white";
+            watches_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        watches.addEventListener('mouseout', () => {
+            watches_button.style.background = "none";
+            watches_button.style.color = "rgb(125, 125, 125)";
+        });
+
+        accessiories.addEventListener('mouseover', () => {
+            accessiories_button.style.background = "white";
+            accessiories_button.style.color = "rgb(70, 70, 70)";
+        });
+
+        accessiories.addEventListener('mouseout', () => {
+            accessiories_button.style.background = "none";
+            accessiories_button.style.color = "rgb(125, 125, 125)";
+        });
+    </script>
+</body>
+</html>
