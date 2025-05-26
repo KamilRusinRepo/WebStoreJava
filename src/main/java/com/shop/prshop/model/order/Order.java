@@ -70,6 +70,7 @@ public class Order {
     public Long getOrderId() {
         return orderId;
     }
+    public void setOrderId(Long orderId) {this.orderId = orderId;}
 
     public String getFirstName() {
         return firstName;
@@ -107,5 +108,4 @@ public class Order {
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }
-
 }
