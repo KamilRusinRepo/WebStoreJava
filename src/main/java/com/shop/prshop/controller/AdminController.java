@@ -96,4 +96,17 @@ public class AdminController {
         return "orderDetails";
     }
 
+    @GetMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable("userId") Long id) {
+        adminService.deleteUser(id);
+
+        return "redirect:/admin/showUsers";
+    }
+
+    @GetMapping("/addAdminRole/{userId}")
+    public String addAdminRole(@PathVariable("userId") Long id) {
+        adminService.addAdminRole(id);
+
+        return "redirect:/admin/showUsers";
+    }
 }
