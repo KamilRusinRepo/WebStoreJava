@@ -1,9 +1,12 @@
 package com.shop.prshop.model.order;
 
+import com.shop.prshop.model.user.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -50,10 +53,15 @@ public class Order {
     @JoinColumn(name = "order_id")
     private List<OrderItem> orderItems;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private User user;
+
     public Order() {
 
     }
-    public Order(Long orderId, String firstName, String lastName, String email, String city, String street, String homeNumber, String postCode, String phoneNumber, LocalDateTime created, List<OrderItem> orderItems) {
+    public Order(Long orderId, String firstName, String lastName, String email, String city, String street, String homeNumber, String postCode, String phoneNumber, LocalDateTime created, List<OrderItem> orderItems, User user) {
         this.orderId = orderId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,6 +73,7 @@ public class Order {
         this.phoneNumber = phoneNumber;
         this.created = created;
         this.orderItems = orderItems;
+        this.user = user;
     }
 
     public Long getOrderId() {
@@ -107,5 +116,13 @@ public class Order {
     }
     public List<OrderItem> getOrderItems() {
         return orderItems;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

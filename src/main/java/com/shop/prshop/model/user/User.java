@@ -1,5 +1,6 @@
 package com.shop.prshop.model.user;
 
+import com.shop.prshop.model.order.Order;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -19,7 +18,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -45,11 +44,14 @@ public class User {
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")}
     )
-    private List<Role> roles = new ArrayList<>();
+    private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders = new ArrayList<>();
 
     public User() {}
 
-    public User(String firstName, String lastName, String email, String password, List<Role> roles, String verificationCode, boolean verified) {
+    public User(String firstName, String lastName, String email, String password, Set<Role> roles, String verificationCode, boolean verified) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -90,15 +92,15 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
@@ -119,6 +121,14 @@ public class User {
     }
     public boolean isEnabled() {
         return verified;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
 }
