@@ -1,0 +1,72 @@
+
+.buttons {
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom_button {
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(50, 50, 50);
+}
+
+.custom_button:hover {
+    color: black;
+    background-color: rgb(245, 245, 245);
+}
+
+.update_button {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(50, 50, 50);
+    color: aliceblue;
+    padding-left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.update_button:hover {
+    color: aliceblue;
+    background-color: rgb(60, 60, 60);
+}
+
+.delete_button {
+    background-color: red;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.delete_button:hover {
+    color: aliceblue;
+    background-color: rgb(240, 0, 0);
+}
+
+.for_wrap {
+    width: 100px;
+    height: 100px;
+}
+
+.for_wrap img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 10px;
+    max-width: 100px;
+    max-height: 100px;
+}
