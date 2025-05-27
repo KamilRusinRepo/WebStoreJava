@@ -1,0 +1,532 @@
+/*backgroud*/
+body {
+    margin: 0;
+    background-color: rgb(245, 245, 247);
+    font-family: sans-serif;
+    padding: 0;
+    width: 100%;
+}
+
+/*navigation menu*/
+.kom {
+    background-color: black;
+    margin-left: -8px;
+    margin-right: 0;
+    width: 100%;
+    z-index: 999;
+    height: 50px;
+    line-height: 50px;
+
+}
+.container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 245, 247);
+    position: relative;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container a {
+    cursor: pointer;
+}
+
+.nav_links {
+    display: inline-flex;
+    padding-left: 10px;
+}
+
+.logo {
+    width: 35px;
+}
+.logo a {
+    color: rgb(70, 70, 70);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.logo a:hover {
+    font-size: 27px;
+    color: rgb(125, 125, 125);
+}
+.nav_links li {
+    list-style: none;
+    margin: 0;
+
+}
+.nav_links li a {
+    margin: 0 0 0 0;
+    color: rgb(125, 125, 125);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.nav_links li a:hover {
+    background-color: white;
+    color: rgb(70, 70, 70);
+}
+
+.bi-person {
+    font-size: 34px;
+    cursor: pointer;
+    margin-right: 2px;
+    color: rgb(70, 70, 70);
+    transition: 0.3s;
+    font-weight:lighter;
+}
+
+.classa {
+    width: 40px;
+    height: 40px;
+
+}
+
+.classa ul li{
+    list-style: none;
+    position: relative;
+    left: -40px;
+    top: -15px;
+    width: 40px;
+    height: 40px;
+}
+
+.classa ul li:hover .class-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    background:white;
+    margin-left: -15px;
+    border-radius: 5px;
+    border: 2px solid rgb(128, 128, 128);
+}
+
+.class-menu {
+    display: none;
+    width: 60px;
+    height: 20px;
+}
+
+.class-menu ul li{
+    text-align: center;
+    width: 70px;
+    height: 20px;
+    position: relative;
+    left:-45px;
+}
+
+.class-menu ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.bi-person:hover {
+    font-size: 38px;
+    color: black;
+}
+
+.cart_quantity {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.cart-icon{
+    font-size: 28px;
+    color: rgb(70, 70, 70);
+    transition: 0.3s;
+}
+
+.cart-icon:hover {
+    font-size: 30px;
+    color: black;
+}
+
+#koszyk {
+    position: relative;
+}
+
+.cart_quantity:hover img {
+    width: 32px;
+    height: 32px;
+}
+
+.cart_quantity:hover #total {
+    width: 27px;
+    height: 27px;
+    font-size: 11px;
+}
+
+#total {
+    position: relative;
+    right: -10px;
+    top: -30px;
+    width: max-content;
+    background-color: black;
+    color: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.photos {
+    margin-bottom: -20px;
+    margin-left: 5px;
+    display: inline-flex;
+    margin-top: -10px;
+}
+.photos img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#user {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#user:hover{
+    width: 28px;
+    height: 28px;
+}
+
+.photos img:hover{
+    width: 32px;
+    height: 32px;
+}
+
+.row {
+    margin-left: 70px;
+}
+.mega_links {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.mega_links li {
+    padding: 0 0 0 0;
+    position: relative;
+}
+
+.mega_links li:after{
+    content: "";
+    height: 3px;
+    width: 0;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: 0.3s;
+}
+
+.mega_links li:hover:after {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.mega_links li a:hover{
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+}
+
+.mega_box {
+    z-index: 950;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s 0.1s;
+}
+
+.content {
+    padding: 25px 20px;
+    display: flex;
+    justify-content: left;
+    background-color: white;
+    box-shadow: -1px 0 5px grey;
+}
+
+.mega_links li a {
+    color: rgb(70, 70, 70);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+li:hover .mega_box{
+    visibility: visible;
+    opacity: 1;
+}
+
+.bi bi-bag {
+    width: 50px;
+    height: 50px;
+}
+
+.form_input {
+    margin: auto;
+    position: relative;
+    top: -15px;
+    margin-top: 0;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+/* main content*/
+.main_content {
+    margin-top: 50px;
+    width: 920px;
+    height: fit-content;
+    margin: auto;
+}
+
+.sort_menu {
+    margin-left: 20px;
+    background-color: aqua;
+    width: 50px;
+    height: 10px;
+    border-radius: 25px;
+}
+
+.sort_table {
+    text-align: right;
+}
+
+.products_menu {
+    margin: auto;
+    margin-top: 20px;
+}
+
+.products {
+    width: 850px;
+    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+/* product card */
+
+.card:hover {
+    width: 255px;
+    height: 355px;
+    box-shadow: 2px 2px 15px rgb(225, 225, 225), -2px -2px 15px rgb(225, 225, 225);
+    margin-top: 7.5px;
+}
+
+.card {
+    scroll-snap-align: start;
+    position: relative;
+    width: 250px;
+    height: 350px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgb(235, 235, 235) , -2px -2px 10px rgb(235, 235, 235);
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card_content {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.product {
+    color: rgb(29, 29, 31);
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.delete_icon {
+    position: absolute;
+    right: 15px;
+    top: 48px;
+    font-size: 20px;
+    color: red;
+    z-index: 1;
+}
+
+.edit_icon {
+    position: absolute;
+    left: 15px;
+    top: 50px;
+    font-size: 15px;
+    color: black;
+    background-color: lightgray;
+    height: 18px;
+    width: 20px;
+    text-align: center;
+    padding-top: 2px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+
+.card_image {
+    position: relative;
+    margin: auto;
+    width: 175px;
+    height: 200px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.photo img{
+    height: 200px;
+    width: 175px;
+}
+
+.card_image img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+
+.price {
+    font-family: sans-serif;
+    color: rgb(75, 75, 75);
+    margin-top: 5px;
+}
+
+.buy {
+    background-color: rgb(0, 64, 255);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    width: 60px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.buy p {
+    margin-top: 10px;
+}
+
+.buy:hover {
+    background-color: rgb(0, 115, 255);
+    cursor: pointer;
+}
+
+.bi bi-bag {
+    width: 50px;
+    height: 50px;
+}
+
+.bi-person {
+    font-size: 34px;
+    cursor: pointer;
+    margin-right: 2px;
+    color: rgb(70, 70, 70);
+    transition: 0.3s;
+    font-weight:lighter;
+}
+
+.classa {
+    width: 40px;
+    height: 40px;
+
+}
+
+.classa ul li{
+    list-style: none;
+    position: relative;
+    left: -40px;
+    top: -15px;
+    width: 40px;
+    height: 40px;
+}
+
+.classa ul li:hover .class-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    background:white;
+    margin-left: -15px;
+    border-radius: 5px;
+    border: 2px solid rgb(128, 128, 128);
+}
+
+.class-menu {
+    display: none;
+    width: 60px;
+    height: 20px;
+}
+
+.class-menu ul li{
+    text-align: center;
+    width: 70px;
+    height: 20px;
+    position: relative;
+    left:-45px;
+}
+
+.class-menu ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.bi-person:hover {
+    font-size: 38px;
+    color: black;
+}
+
+.itemNotFound {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 450;
+    color: rgb(125, 125, 125);
+    margin: auto;
+}
+
+select {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 20px;
+    margin-left: 55px;
+}
