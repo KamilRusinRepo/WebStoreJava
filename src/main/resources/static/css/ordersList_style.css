@@ -1,0 +1,26 @@
+.buttons {
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom_button {
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(50, 50, 50);
+}
+
+.custom_button:hover {
+    color: black;
+    background-color: rgb(245, 245, 245);
+}
+
+td {
+    font-size: 5px;
+}
