@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Samsung page</title>
+    <link rel="stylesheet" type="text/css" href="../css/categories_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- navigation menu -->
+<div th:replace="fragments/navigation_menu :: navigation"></div>
+
+<!-- main content -->
+<div class="main_content">
+
+    <div th:if="${#lists.isEmpty(items)}" class="itemNotFound">
+        <p>No item of this category found<p>
+    </div>
+
+    <div class="products_menu">
+
+        <form th:action="@{/samsungpage}" th:unless="${#lists.isEmpty(items)}" method="GET">
+            <select name = sort onchange="this.form.submit()">
+                <option value="none" th:selected="(${sort} == 'none')">None</option>
+                <option value="fullName" th:selected="(${sort} == 'fullName')">Model</option>
+                <option value="price" th:selected="(${sort} == 'price')">Price</option>
+                <option value="type" th:selected="(${sort} == 'type')">Type</option>
+            </select>
+        </form>
+
+        <div class="products" th:unless="${#lists.isEmpty(items)}">
+
+            <div class="card" th:each="item : ${items}">
+                <div class="card_content">
+                    <a th:href="@{'/admin/showUpdateForm/' + ${item.id}(path='/samsungpage')}" class="edit_icon" sec:authorize="hasRole('ADMIN')">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <p class="product" th:text="${item.fullName}"></p>
+                    <a th:href="@{'/admin/delete/' + ${item.id}(path='/samsungpage')}" class="delete_icon" onclick="return confirm('Are you sure you want to delete this item?')" sec:authorize="hasRole('ADMIN')">
+                        <i class="bi bi-x-square-fill"></i>
+                    </a>
+                    <div class="card_image">
+                        <img class="photo" th:src="@{${item.image}}">
+                    </div>
+                    <div class="bottom">
+                        <p class="price">From <span th:text="${item.price}"></span>zł</p>
+                        <a th:href="@{'/add/' + ${item.id}(path='/samsungpage')}" class="buy"><p>Buy</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let apple = document.getElementById('nav_apple');
+    let apple_button = document.querySelector('.nav_apple_button');
+    let samsung = document.getElementById('nav_samsung');
+    let samsung_button = document.querySelector('.nav_samsung_button');
+    let phones = document.getElementById('nav_phone');
+    let phone_button = document.querySelector('.nav_phone_button');
+    let laptops = document.getElementById('nav_laptop');
+    let laptops_button = document.querySelector('.nav_laptop_button');
+    let tablets = document.getElementById('nav_tablet');
+    let tablets_button = document.querySelector('.nav_tablet_button');
+    let headphones = document.getElementById('nav_headphones');
+    let headphones_button = document.querySelector('.nav_headphones_button');
+    let watches = document.getElementById('nav_watch');
+    let watches_button = document.querySelector('.nav_watch_button');
+    let accessiories = document.getElementById('nav_accessories');
+    let accessiories_button = document.querySelector('.nav_accessories_button');
+
+    apple.addEventListener('mouseover', () => {
+        apple_button.style.background = "white";
+        apple_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    apple.addEventListener('mouseout', () => {
+        apple_button.style.background = "none";
+        apple_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    samsung.addEventListener('mouseover', () => {
+        samsung_button.style.background = "white";
+        samsung_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    samsung.addEventListener('mouseout', () => {
+        samsung_button.style.background = "none";
+        samsung_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    phones.addEventListener('mouseover', () => {
+        phone_button.style.background = "white";
+        phone_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    phones.addEventListener('mouseout', () => {
+        phone_button.style.background = "none";
+        phone_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    laptops.addEventListener('mouseover', () => {
+        laptops_button.style.background = "white";
+        laptops_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    laptops.addEventListener('mouseout', () => {
+        laptops_button.style.background = "none";
+        laptops_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    tablets.addEventListener('mouseover', () => {
+        tablets_button.style.background = "white";
+        tablets_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    tablets.addEventListener('mouseout', () => {
+        tablets_button.style.background = "none";
+        tablets_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    headphones.addEventListener('mouseover', () => {
+        headphones_button.style.background = "white";
+        headphones_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    headphones.addEventListener('mouseout', () => {
+        headphones_button.style.background = "none";
+        headphones_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    watches.addEventListener('mouseover', () => {
+        watches_button.style.background = "white";
+        watches_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    watches.addEventListener('mouseout', () => {
+        watches_button.style.background = "none";
+        watches_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    accessiories.addEventListener('mouseover', () => {
+        accessiories_button.style.background = "white";
+        accessiories_button.style.color = "rgb(70, 70, 70)";
+    });
+
+    accessiories.addEventListener('mouseout', () => {
+        accessiories_button.style.background = "none";
+        accessiories_button.style.color = "rgb(125, 125, 125)";
+    });
+
+    window.onbeforeunload = function() {
+        localStorage.setItem('scrollPosition', window.scrollY);
+    };
+
+    // Restore scroll position after reloading
+    window.onload = function() {
+        var scrollPosition = localStorage.getItem('scrollPosition');
+        if (scrollPosition !== null) {
+            window.scrollTo(0, scrollPosition);
+            localStorage.removeItem('scrollPosition'); // Optional: remove the stored scroll position
+        }
+    };
+</script>
+</body>
+</html>
