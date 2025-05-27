@@ -3,19 +3,19 @@ package com.shop.prshop;
 import com.shop.prshop.model.Item;
 import com.shop.prshop.model.order.Order;
 import com.shop.prshop.model.order.OrderItem;
+import com.shop.prshop.model.user.Role;
 import com.shop.prshop.model.user.User;
-import com.shop.prshop.repository.ItemRepository;
-import com.shop.prshop.repository.OrderItemRepository;
-import com.shop.prshop.repository.OrderRepository;
-import com.shop.prshop.repository.UserRepository;
+import com.shop.prshop.repository.*;
 import com.shop.prshop.service.AdminService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -37,6 +37,9 @@ public class AdminServiceTest {
 
     @MockBean
     private OrderItemRepository orderItemRepository;
+
+    @MockBean
+    private RoleRepository roleRepository;
 
     @Test
     void testSaveItem() {
@@ -121,5 +124,57 @@ public class AdminServiceTest {
 
         List<OrderItem> result = adminService.findByOrderId(1L);
         assertEquals(1, result.size());
+    }
+
+    @Test
+    void testDeleteUser_UserExists() {
+        User user = new User();
+        user.setId(1L);
+        Set<Role> roles = new HashSet<>();
+        roles.add(new Role());
+        user.setRoles(roles);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        adminService.deleteUser(1L);
+
+        assertTrue(user.getRoles().isEmpty());
+        verify(userRepository).delete(user);
+    }
+
+    @Test
+    void testDeleteUser_UserNotExists() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        adminService.deleteUser(999L);
+
+        verify(userRepository, never()).delete(any());
+    }
+
+    @Test
+    void testAddAdminRole_UserExists() {
+        User user = new User();
+        user.setId(1L);
+        user.setRoles(new java.util.HashSet<>());
+
+        Role role = new Role();
+        role.setName("ROLE_ADMIN");
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(roleRepository.findByName("ROLE_ADMIN")).thenReturn(role);
+
+        adminService.addAdminRole(1L);
+
+        assertTrue(user.getRoles().contains(role));
+        verify(userRepository).save(user);
+    }
+
+    @Test
+    void testAddAdminRole_UserNotExists() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        adminService.addAdminRole(999L);
+
+        verify(userRepository, never()).save(any());
     }
 }
