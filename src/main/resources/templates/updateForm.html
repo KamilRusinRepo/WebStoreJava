@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Update Item</h2>
+    </div>
+</div>
+<div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" th:action="@{/admin/saveUpdatedItem}" th:object="${item}" method="POST">
+
+        <input type="hidden" name="path" th:value="${path}">
+        <input type="hidden" th:field="*{id}">
+
+        <div>
+            <label for="type" class="block text-sm font-medium leading-6 text-gray-900">Type</label>
+            <div class="">
+                <select id="type" name="type" th:field="*{type}" class="text-center py-0.5 rounded-md pb-1 pr-1">
+                    <option value="Phone">Phone</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Headphones">Headphones</option>
+                    <option value="Watch">Watch</option>
+                    <option value="Accessories">Accessories</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label for="make" class="block text-sm font-medium leading-12 text-gray-900">Make</label>
+            <div>
+                <select id="make" name="make" th:field="*{make}" class="text-center py-0.5 rounded-md pb-1 pr-1 pl-1">
+                    <option value="Apple">Apple</option>
+                    <option value="Samsung">Samsung</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
+            <div>
+                <input id="model" name="model" type="text" th:field="*{model}" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+            </div>
+        </div>
+
+        <div>
+            <div class="flex items-center justify-between">
+                <label for="full_name" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+            </div>
+            <div>
+                <input id="full_name" name="full_name" type="text" th:field="*{fullName}" autocomplete="current-password" required minlength="8" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring focus:ring focus:ring-stone-800 sm:text-sm sm:leading-6 ">
+            </div>
+        </div>
+
+        <div>
+            <label for="imageUrl" class="block text-sm font-medium leading-6 text-gray-900">Image URL</label>
+            <div>
+                <input id="imageUrl" name="imageUrl" type="text" th:field="*{image}" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+            </div>
+        </div>
+
+        <div>
+            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+            <div>
+                <input id="price" name="price" type="number" th:field="*{price}" required class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-stone-800 sm:text-sm sm:leading-6">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="flex w-full justify-center rounded-md bg-stone-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rgb(29, 29, 31) cursor-pointer">Update</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
