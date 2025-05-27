@@ -3,11 +3,9 @@ package com.shop.prshop.service;
 import com.shop.prshop.model.Item;
 import com.shop.prshop.model.order.Order;
 import com.shop.prshop.model.order.OrderItem;
+import com.shop.prshop.model.user.Role;
 import com.shop.prshop.model.user.User;
-import com.shop.prshop.repository.ItemRepository;
-import com.shop.prshop.repository.OrderItemRepository;
-import com.shop.prshop.repository.OrderRepository;
-import com.shop.prshop.repository.UserRepository;
+import com.shop.prshop.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +22,15 @@ public class AdminService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final OrderItemRepository orderItemRepository;
+    private final RoleRepository roleRepository;
 
     @Autowired
-    public AdminService(ItemRepository itemRepository, OrderRepository orderRepository, UserRepository userRepository, OrderItemRepository orderItemRepository) {
+    public AdminService(ItemRepository itemRepository, OrderRepository orderRepository, UserRepository userRepository, OrderItemRepository orderItemRepository, RoleRepository roleRepository) {
         this.itemRepository = itemRepository;
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.orderItemRepository = orderItemRepository;
+        this.roleRepository = roleRepository;
     }
 
     public void saveItem(Item item) {
@@ -44,7 +44,7 @@ public class AdminService {
             itemRepository.delete(itemToDel);
         }
         else {
-            logger.info("User with id: " + id + "not found!");
+            logger.info("Item with id: " + id + "not found!");
         }
     }
 
@@ -66,5 +66,30 @@ public class AdminService {
 
     public List<OrderItem> findByOrderId(Long id) {
         return orderItemRepository.findByOrderId(id);
+    }
+
+    public void deleteUser(Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isPresent()) {
+            User userToDel = optionalUser.get();
+            userToDel.getRoles().clear();
+            userRepository.delete(userToDel);
+        }
+        else {
+            logger.info("User with id: " + id + "not found!");
+        }
+    }
+
+    public void addAdminRole(Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        Role role = roleRepository.findByName("ROLE_ADMIN");
+        if(optionalUser.isPresent()) {
+            User userToUpdate = optionalUser.get();
+            userToUpdate.getRoles().add(role);
+            userRepository.save(userToUpdate);
+        }
+        else {
+            logger.info("User with id: " + id + "not found!");
+        }
     }
 }
