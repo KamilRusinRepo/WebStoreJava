@@ -41,6 +41,14 @@ public class OrderService {
 
     public void saveOrder(OrderDto orderDto) {
         Order order = OrderMapper.mapToOrder(orderDto);
+        String email = order.getEmail();
+        Optional<User> optUser= userRepository.findByEmail(email);
+        if(optUser.isPresent()) {
+            User user = optUser.get();
+            order.setUser(user);
+            user.getOrders().add(order);
+            userRepository.save(user);
+        }
         orderRepository.save(order);
         orderItemRepository.saveAll(OrderMapper.mapToOrderItemList(cart, order));
         cart.clearCart();
