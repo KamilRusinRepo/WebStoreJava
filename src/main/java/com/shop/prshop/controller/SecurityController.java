@@ -1,6 +1,5 @@
 package com.shop.prshop.controller;
 
-import com.shop.prshop.RandomString;
 import com.shop.prshop.model.user.User;
 import com.shop.prshop.repository.UserRepository;
 import com.shop.prshop.service.UserServiceImpl;
