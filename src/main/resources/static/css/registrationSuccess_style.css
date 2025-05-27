@@ -1,0 +1,14 @@
+.container {
+    margin: auto;
+    text-align: center;
+}
+
+.container a {
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container a:hover {
+    color: rgb(100, 100, 100);
+}
