@@ -1,7 +1,7 @@
 # Tablica zawartości
-* [Ogólne informacje](#general-info)
-* [Technologie](#technologies)
-* [Funkcje](#functions)
+* [Ogólne informacje](#ogólne-informacje)
+* [Technologie](#technologie)
+* [Funkcje](#funkcje)
 * [Video](#video)
 * [Dodatkowe informacje](#dodatkowe-informacje)
 
@@ -32,6 +32,7 @@ Projekt prezentuje sklep internetowy, w którym jako administrator możesz zarz�
 - System zamówień
 - System koszyka
 - Panel administratora, w którym admin może przeglądać listy: użytkowników, produktów, zamówień
+- Administrator może dodawać uprawnienia administratora innym użytkownikom
 - System zmiany hasła
 - System przypomnienia hasła
 - Autoryzacja i uwierzytelnianie użytkownika
@@ -45,3 +46,10 @@ By obejrzeć video, proszę nacisnąć obraz:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/kWlLpYGI19c/0.jpg)](https://www.youtube.com/watch?v=kWlLpYGI19c)
 
 # Dodatkowe informacje
+schemat bazy danych:
+<div align="center">
+  <img src="images/db_erd.png" alt="erd schema" height="300"/>
+</div>
+
+Pokrycie testami wynosi 81%:
+<img src="images/test_coverage.png" alt="test coverage" height="200"/>
