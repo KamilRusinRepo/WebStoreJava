@@ -4,9 +4,10 @@
 * [Funkcje](#funkcje)
 * [Video](#video)
 * [Dodatkowe informacje](#dodatkowe-informacje)
+* [Uruchomienie](#uruchomienie)
 
 # Ogólne informacje
-Projekt prezentuje sklep internetowy, w którym jako administrator możesz zarządzać produktami, użytkownicy mogą logować się do sklepu, składać zamówienia, przeglądać historię swoich zamówień i wiele więcej. Zachęcam do obejrzenia filmu prezentującego funkcjonalność sklepu.
+Projekt przedstawia sklep internetowy, w którym administrator może zarządzać produktami, użytkownicy mogą logować się do sklepu, składać zamówienia, przeglądać historię swoich zamówień i wiele więcej.
 
 # Technologie
 * Java 17
@@ -53,3 +54,9 @@ schemat bazy danych:
 
 Pokrycie testami wynosi 81%:
 <img src="images/test_coverage.png" alt="test coverage" height="200"/>
+
+# Uruchomienie
+1. Sklonuj repozytorium komendą: git clone https://github.com/KamilRusinRepo/WebStoreJava.git
+2. Wejdź do nowo utworzonego folderu: cd WebStoreJava
+3. Zbuduj plik .jar: ./mvnw clean package
+4. Uruchom plik docker-compose: docker-compose up --build
