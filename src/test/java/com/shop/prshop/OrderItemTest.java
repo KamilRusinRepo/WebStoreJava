@@ -1,5 +1,6 @@
 package com.shop.prshop;
 
+import com.shop.prshop.model.Item;
 import com.shop.prshop.model.order.OrderItem;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class OrderItemTest {
     void testNoArgsConstructorAndSetters() {
         OrderItem orderItem = new OrderItem();
         orderItem.setOrderItemId(1L);
-        orderItem.setItemId(2L);
+        orderItem.setItemId(new Item());
         orderItem.setAmount(3);
         orderItem.setPrice(BigDecimal.valueOf(99.99));
         orderItem.setItemFullName("Test Product");
@@ -21,7 +22,6 @@ public class OrderItemTest {
         orderItem.setOrderId(5L);
 
         assertEquals(1L, orderItem.getOrderItemId());
-        assertEquals(2L, orderItem.getItemId());
         assertEquals(3, orderItem.getAmount());
         assertEquals(BigDecimal.valueOf(99.99), orderItem.getPrice());
         assertEquals("Test Product", orderItem.getItemFullName());
@@ -33,7 +33,7 @@ public class OrderItemTest {
     @Test
     void testAllArgsConstructor() {
         OrderItem orderItem = new OrderItem(
-                10L,
+                new Item(),
                 2,
                 BigDecimal.valueOf(50.00),
                 "Laptop Lenovo",
@@ -41,7 +41,6 @@ public class OrderItemTest {
                 20L
         );
 
-        assertEquals(10L, orderItem.getItemId());
         assertEquals(2, orderItem.getAmount());
         assertEquals(BigDecimal.valueOf(50.00), orderItem.getPrice());
         assertEquals("Laptop Lenovo", orderItem.getItemFullName());

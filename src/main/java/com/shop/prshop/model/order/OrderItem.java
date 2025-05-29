@@ -1,6 +1,7 @@
 package com.shop.prshop.model.order;
 
 import com.shop.prshop.controller.AdminController;
+import com.shop.prshop.model.Item;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +21,9 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private Long orderItemId;
 
-    @Column(name = "item_id")
-    private Long itemId;
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Item itemId;
 
     @Column(name = "amount")
     private int amount;
@@ -45,7 +47,7 @@ public class OrderItem {
 
     }
 
-    public OrderItem(Long itemId, int amount, BigDecimal price, String itemFullName, String itemImage, Long orderId) {
+    public OrderItem(Item itemId, int amount, BigDecimal price, String itemFullName, String itemImage, Long orderId) {
         this.itemId = itemId;
         this.amount = amount;
         this.price = price;
@@ -70,11 +72,11 @@ public class OrderItem {
     }
 
 
-    public Long getItemId() {
+    public Item getItemId() {
         return itemId;
     }
 
-    public void setItemId(Long itemId) {
+    public void setItemId(Item itemId) {
         this.itemId = itemId;
     }
 
